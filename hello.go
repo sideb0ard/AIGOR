@@ -29,34 +29,6 @@ func listen() string {
 	return sline
 }
 
-func main() {
-	p := Person{}
-	fmt.Printf("Hullo. I am AIGOR\n")
-
-	if len(p.name) == 0 {
-		fmt.Println("What is your name?")
-		p.name = listen()
-		fmt.Printf("YOU ARE %v\n", p.name)
-	}
-
-	for {
-		line := listen()
-		reply := getReply(line)
-		if len(reply) == 0 {
-			fmt.Println("LAME - no REPLY!")
-			fmt.Printf("Sorry, i don't know what %v means - can you tell me?\n", line)
-			explanation := listen()
-			fmt.Printf("Thanks, so \"%v\" means \"%v\" - got it (i think!!)\n", line, explanation)
-			saveKnowledge(line, explanation)
-		}
-		sayName := rand.Intn(4)
-		if sayName == 0 {
-			reply = p.name + ", " + reply
-		}
-		fmt.Println(reply)
-	}
-}
-
 func saveKnowledge(wurd string, meaning string) {
 	c, err := redis.Dial("tcp", ":6379")
 	if err != nil {
@@ -97,4 +69,32 @@ func getReply(q string) string {
 
 	}
 	return ("")
+}
+
+func main() {
+	p := Person{}
+	fmt.Printf("Hullo. I am AIGOR\n")
+
+	if len(p.name) == 0 {
+		fmt.Println("What is your name?")
+		p.name = listen()
+		fmt.Printf("YOU ARE %v\n", p.name)
+	}
+
+	for {
+		line := listen()
+		reply := getReply(line)
+		if len(reply) == 0 {
+			fmt.Println("LAME - no REPLY!")
+			fmt.Printf("Sorry, i don't know what %v means - can you tell me?\n", line)
+			explanation := listen()
+			fmt.Printf("Thanks, so \"%v\" means \"%v\" - got it (i think!!)\n", line, explanation)
+			saveKnowledge(line, explanation)
+		}
+		sayName := rand.Intn(4)
+		if sayName == 0 {
+			reply = p.name + ", " + reply
+		}
+		fmt.Println(reply)
+	}
 }
