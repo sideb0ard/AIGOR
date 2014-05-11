@@ -1,0 +1,31 @@
+#|Ideas half-inched from John Nolan's Chatbot|:Eliza.pm - http://search.cpan.org/~neilb/Chatbot-Eliza-1.05/lib/Chatbot/Eliza.pm
+pre|cant|can't
+pre|certainly|yes
+pre|computers|computer
+pre|dont|don't
+pre|dreams|dream
+pre|dreamt|dreamed
+pre|equivalent|alike
+pre|i'm|i am
+pre|identical|alike
+pre|machine|computer
+pre|machines|computer
+pre|maybe|perhaps
+pre|recall|remember
+pre|recollect|remember
+pre|same|alike
+pre|were|was
+pre|wont|won't
+pre|you're|you are
+#
+post|am|are
+post|i|you
+post|i'm|you are
+post|me|you
+post|me|you
+post|my|your
+post|myself|yourself
+post|you|me
+post|your|my
+post|yours|mine
+post|yourself|myself
